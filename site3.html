@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.3.1/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
+
+<a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: hiro;">
+    <a-marker preset="hiro">
+        <!-- 3D model will appear here -->
+        <a-entity
+            gltf-model="url(assest\gltf avatars\Character_Goblin_Male\Character_Goblin_Male.gltf)"
+            scale="0.5 0.5 0.5"
+            visible="false"
+            id="myModel"
+        ></a-entity>
+    </a-marker>
+
+    <!-- Camera and other elements -->
+    <a-entity camera></a-entity>
+</a-scene>
+
+<script>
+    // Get the marker and 3D model entities
+    const marker = document.querySelector("a-marker");
+    const model = document.getElementById("myModel");
+
+    // Listen for markerFound event
+    marker.addEventListener("markerFound", () => {
+        // Show the 3D model when the marker is found
+        model.setAttribute("visible", true);
+    });
+
+    // Listen for markerLost event
+    marker.addEventListener("markerLost", () => {
+        // Hide the 3D model when the marker is lost
+        model.setAttribute("visible", false);
+    });
+</script>
+
+</body>
+</html>
