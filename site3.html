@@ -8,38 +8,22 @@
 </head>
 <body>
 
+<!-- QR-kode for at åbne AR-appen -->
+<img src="link-til-din-qr-kode.png" alt="QR Code" style="width: 200px; height: 200px;">
+
 <a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: hiro;">
     <a-marker preset="hiro">
         <!-- 3D model will appear here -->
         <a-entity
-            gltf-model="url(assest\gltf avatars\Character_Goblin_Male\Character_Goblin_Male.gltf)"
+            gltf-model="url(gltf avatars\Character_Goblin_Male)"
             scale="0.5 0.5 0.5"
-            visible="false"
-            id="myModel"
+            rotation="0 180 0"
         ></a-entity>
     </a-marker>
 
     <!-- Camera and other elements -->
     <a-entity camera></a-entity>
 </a-scene>
-
-<script>
-    // Get the marker and 3D model entities
-    const marker = document.querySelector("a-marker");
-    const model = document.getElementById("myModel");
-
-    // Listen for markerFound event
-    marker.addEventListener("markerFound", () => {
-        // Show the 3D model when the marker is found
-        model.setAttribute("visible", true);
-    });
-
-    // Listen for markerLost event
-    marker.addEventListener("markerLost", () => {
-        // Hide the 3D model when the marker is lost
-        model.setAttribute("visible", false);
-    });
-</script>
 
 </body>
 </html>
