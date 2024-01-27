@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- At nægte skalering gør at siden virker på android mobiltelefoner -->
+    <title>try</title>
+
+    <!-- Inkluderer app.js script -->
+    <script src="assets/js/ar.js" defer></script>
+    
+    <!-- Inkluderer A-Frame og AR.js scripts -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+  </head>
+
+  <body style="margin: 0px; overflow: hidden">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3_HAMMING63;">
+
+  <!-- QR-kode for at åbne AR-appen -->
+<img src="assets/QR code/qrkode.png" alt="QR Code" style="width: 200px; height: 200px;">
+        
+
+      <!-- Marker with a custom model -->
+      <a-marker preset="hiro">
+        <a-entity 
+          position="0 0 0"
+          rotation="-90 0 0" 
+          gltf-model=url("gltf avatars\Character_Goblin_Male\Character_Goblin_Male.gltf")
+          scale="0.1 0.1 0.1"
+        ></a-entity>
+      </a-marker>
+
+      <!-- Camera entity -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
