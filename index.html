@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js">defer</script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.3.1/aframe/build/aframe-ar.js"></script>
 </head>
 <body>
@@ -11,18 +11,18 @@
 <!-- QR-kode for at åbne AR-appen -->
 <img src="qrkode.png" alt="QR Code" style="width: 200px; height: 200px;">
 
-<a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: hiro;">
-    <a-marker preset="hiro">
+<a-scene embedded arjs="detectionMode: mono_and_matrix; matrixCodeType: hiro;" vr-mode-ui="enabled: false">    <a-marker preset="hiro">
         <!-- 3D model will appear here -->
         <a-entity
             gltf-model="url(gltf avatars/Character_Goblin_Male.gltf)"
             scale="0.5 0.5 0.5"
-            rotation="0 180 0"
+            rotation="0 180 0"  
         ></a-entity>
-    </a-marker>
+    
 
     <!-- Camera and other elements -->
     <a-entity camera></a-entity>
+    <a-entity phonecamera></a-entity>
 </a-scene>
 
 </body>
